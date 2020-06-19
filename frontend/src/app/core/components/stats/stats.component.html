@@ -1,0 +1,32 @@
+<div class="title primary-color">
+  <h2>Embrace Downloads Stats</h2>
+</div>
+<div class="countries">
+  <div class="flex">
+    <div class="button">
+      <button mat-raised-button (click)="perCountry()">Country</button>
+    </div>
+    <div>
+      <button mat-raised-button (click)="perDayTime()">Day time</button>
+    </div>
+  </div>
+  <mat-table *ngIf="dataSource" 
+              [dataSource]="dataSource" 
+              class="mat-elevation-z8" 
+              matSort
+              class="table" >
+
+    <ng-container matColumnDef="element">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> {{header}} </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.element}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="downloads">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Downloads </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.downloads}} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+</div>

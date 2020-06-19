@@ -1,0 +1,23 @@
+<google-map height="90vh"
+            width="90vw"
+            [center]="center"
+            [zoom]="zoom">
+  <map-marker #marker
+              *ngFor="let mapMarker of markers"
+              [position]="mapMarker.position"
+              [options]="mapMarker.options"
+              (mapClick)="openInfoWindow(marker, mapMarker)"></map-marker>
+  <map-info-window>
+    <div *ngIf="infoWindowData">
+      <div>
+        Country: {{infoWindowData.country}}
+      </div>
+      <div>
+        Downloaded at: {{infoWindowData.downloadedAt.toLocaleString()}}
+      </div>
+      <div>
+        App: {{infoWindowData.appId}}
+      </div>
+    </div>
+  </map-info-window>
+</google-map>

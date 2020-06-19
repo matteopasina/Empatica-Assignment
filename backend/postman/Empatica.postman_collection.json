@@ -1,0 +1,97 @@
+{
+	"info": {
+		"_postman_id": "7b7fae5e-d198-4f8c-8d13-3e6c5aa313dc",
+		"name": "Empatica",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getCountries",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BackendURL}}/countries",
+					"host": [
+						"{{BackendURL}}"
+					],
+					"path": [
+						"countries"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "timeRanges",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BackendURL}}/timeRanges",
+					"host": [
+						"{{BackendURL}}"
+					],
+					"path": [
+						"timeRanges"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "location",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"latitude\": 41.088,\n\t\"longitude\": 0.490,\n\t\"app_id\": \"ISO_APP\",\n\t\"downloaded_at\": \"2020-06-20 09:00:00\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BackendURL}}/location",
+					"host": [
+						"{{BackendURL}}"
+					],
+					"path": [
+						"location"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getLocationRange",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BackendURL}}/locationsInRange?startDate=2020-06-01T09:00:00.000Z&endDate=2020-06-13T09:00:00.000Z",
+					"host": [
+						"{{BackendURL}}"
+					],
+					"path": [
+						"locationsInRange"
+					],
+					"query": [
+						{
+							"key": "startDate",
+							"value": "2020-06-01T09:00:00.000Z"
+						},
+						{
+							"key": "endDate",
+							"value": "2020-06-13T09:00:00.000Z"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

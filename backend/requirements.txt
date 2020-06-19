@@ -1,0 +1,4 @@
+Flask==1.1.2
+PyMongo==3.10.1
+geopy==1.22.0
+pycountry==19.8.18

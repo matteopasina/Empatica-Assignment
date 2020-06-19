@@ -1,0 +1,46 @@
+.selectors-container {
+    display: flex;
+    margin-left: 1em;
+    overflow: hidden;
+}
+
+.selector {
+    margin-right: 2em;
+}
+
+.dates-container {
+    display: flex;
+    margin-top: 1em;
+    margin-left: 1em;
+}
+
+.date-selector {
+    margin-right: 2em;
+}
+
+.search-button {
+    margin-top:1em;
+    width: fit-content;
+    height: fit-content;
+}
+
+.button-reset {
+    margin-top:1em;
+}
+
+.map {
+    margin-left: auto;
+    margin-right: auto;
+    width: 90vw;
+}
+
+.info-label {
+    font-family: Roboto-Light;
+    margin: 1em;
+}
+
+.title {
+    font-family: Roboto-Regular;
+    margin-left: 1em;
+    margin-top: 6em;
+}

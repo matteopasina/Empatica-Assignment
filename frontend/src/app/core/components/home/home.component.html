@@ -1,0 +1,78 @@
+<div class="title primary-color">
+  <h2>Embrace Downloads Map</h2>
+</div>
+<div class="dates-container">
+  <div class="date-selector">
+    <mat-form-field>
+      <mat-label>Start date</mat-label>
+      <input matInput [matDatepicker]="startDatePicker"
+            [max]="maxDate"
+            (focus)="startDatePicker.open()"
+            (dateInput)="updateStartDate($event)" 
+            (updateStartDate)="updateStartDate($event)">
+      <mat-datepicker #startDatePicker></mat-datepicker>
+    </mat-form-field>
+  </div>
+  <div class="date-selector">
+    <mat-form-field>
+      <mat-label>End date</mat-label>
+      <input matInput [matDatepicker]="endDatePicker"
+            [min]="startDate"
+            [max]="maxDate"
+            (focus)="endDatePicker.open()"
+            (dateInput)="updateEndDate($event)" 
+            (dateChange)="updateEndDate($event)">
+      <mat-datepicker #endDatePicker [startAt]="startDate"></mat-datepicker>
+    </mat-form-field>
+  </div>
+  <div class="search-button">
+    <button mat-raised-button (click)="searchDownloads()">Search</button>
+  </div>
+</div>
+<div [@openClosed]="locationsLoaded() ? 'open': 'closed'"class="selectors-container">
+    <div class="selector">
+      <form>
+        <mat-form-field>
+            <input type="text"
+                  placeholder="Pick one country"
+                  matInput
+                  [formControl]="formControl"
+                  [matAutocomplete]="auto"/>
+            <mat-autocomplete
+            autoActiveFirstOption #auto="matAutocomplete" 
+            (optionSelected)="onChangeCountry($event.option.value.code)"
+            [displayWith]="displayFn">
+              <mat-option *ngFor="let country of filteredCountries | async" [value]="country">
+                {{country.name}}
+              </mat-option>
+            </mat-autocomplete>
+        </mat-form-field>
+      </form>
+    </div>
+    <div class="selector">
+      <mat-form-field>
+        <mat-label>Times</mat-label>
+        <mat-select [(ngModel)]="appliedFilter.timeOfDay" (selectionChange)="onChangeTime($event.value)">
+          <mat-option *ngFor="let time of timesOfDay" [value]="time.range">{{time.name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="selector">
+      <mat-form-field>
+        <mat-label>Identifier</mat-label>
+        <mat-select [(ngModel)]="appliedFilter.identifier" (selectionChange)="onChangeIndentifier($event.value)">
+          <mat-option *ngFor="let identifier of identifiers" [value]="identifier">{{identifier}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="button-reset">
+      <button mat-raised-button class="search-downloads" (click)="resetFilters()">Reset</button>
+    </div>
+</div>
+<div class="info-label" *ngIf="getStartDate()">
+  Data related to the date interval: {{getStartDate()}} - {{getEndDate()}}
+</div>
+<!-- The filter object is passed to the map component to filter the locations -->
+<div class="map">
+  <app-map [filter]="appliedFilter" ></app-map>
+</div>
