@@ -31,6 +31,14 @@ seems good, given that it can easily scale.
 
 The database is already filled with some random data of download locations.
 
+## Assumptions and limitations
+
+Number of downloads per day around 1k
+
+Filtering by time of day based on UTC time not local time, to filter by local time there is a change to be done. The backend should take the timezone from the lat lng and save another date in the db in another field, let's say 'localtime', and the frontend should filter on that date. Another way to achieve this is to directly add in the POST /location a field 'localtime'.
+
+I am using Nominatim to reverse geocode the lat lng to the country since it is free. Nominatim unfortunatly doesn't return the country code but just the country name so I am using pycountry to map the names with the country codes. Some nations have different country name in Nominatim and pycountry so the mappings fails, this can be avoided using GMaps APIs because there is no need to map country codes since they are returned in the response of the reverse geocoding service.
+
 ## Scalability
 
 If the number of download are a lot(millions) some changes can be implemented
