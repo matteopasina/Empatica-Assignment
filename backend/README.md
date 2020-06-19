@@ -72,3 +72,7 @@ Example of a POST:
 ## Postman
 
 In the postman folder there is a collection and an environment to query the backend
+
+## Unittest
+
+There is not a lot of logic since the backend is basically just an interface to the database, there is only one unittest that you can run with `python3 -m unittest`
