@@ -31,8 +31,8 @@ export class LocationsFacade {
     }
 
     loadLocations(startDate: Date, endDate: Date) {
-        localStorage.setItem('StartDate', startDate.toLocaleDateString());
-        localStorage.setItem('EndDate', endDate.toLocaleDateString());
+        localStorage.setItem('StartDate', startDate.toISOString());
+        localStorage.setItem('EndDate', endDate.toISOString());
         return this.store.dispatch(loadLocationsAction({ startDate, endDate }));
     }
 

@@ -9,7 +9,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatDatepickerModule} from '@angular/material/datepicker';
-import { MatNativeDateModule } from '@angular/material/core';
+import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
 import {MatButtonModule} from '@angular/material/button';
 import {MatTableModule} from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
@@ -50,7 +50,8 @@ import { StatsComponent } from './components/stats/stats.component';
         StatsComponent
     ],
     providers: [
-        MatDatepickerModule
+        MatDatepickerModule,
+        {provide: MAT_DATE_LOCALE, useValue: 'en-GB'},
     ],
 })
 export class CoreModule {

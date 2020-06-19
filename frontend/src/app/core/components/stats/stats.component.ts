@@ -19,9 +19,7 @@ export class StatsComponent implements OnInit {
 
   constructor(private locationsFacade: LocationsFacade) { }
 
-  ngOnInit() {
-    this.dataSource.sort = this.sort;
-  }
+  ngOnInit() { }
 
   perCountry() {
     // Show country table

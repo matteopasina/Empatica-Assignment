@@ -163,7 +163,7 @@ describe('Selectors', () => {
                 longitude: 43,
                 app_id: 'ANDROID_ALERT',
                 downloaded_at: {
-                $date: 1591595455000
+                $date: 1592558663000
                 },
                 country: 'TR',
                 id: '3'
@@ -185,7 +185,7 @@ describe('Selectors', () => {
                 longitude: 43,
                 app_id: 'ANDROID_ALERT',
                 downloaded_at: {
-                $date: 1591595455000
+                $date: 1592558663000
                 },
                 country: 'TR',
                 id: '3'
@@ -224,7 +224,7 @@ describe('Selectors', () => {
                 longitude: 43,
                 app_id: 'ANDROID_ALERT',
                 downloaded_at: {
-                $date: 1591595455000
+                $date: 1592558663000
                 },
                 country: 'TR',
                 id: '3'
@@ -256,7 +256,7 @@ describe('Selectors', () => {
                 longitude: 43,
                 app_id: 'ANDROID_ALERT',
                 downloaded_at: {
-                $date: 1591595455000
+                $date: 1592558663000
                 },
                 country: 'TR',
                 id: '3'
@@ -269,7 +269,7 @@ describe('Selectors', () => {
         expect(selectWithFilters.projector(allLocations, props)).toEqual(expectedLocations);
     })
 
-    it('should return italian and afternoon and ANDROID_ALERT locations', () => {
+    it('should return italian and afternoon and IOS_MATE locations', () => {
         const allLocations: Array<Location> = [
             {
                 latitude: 46,
@@ -316,7 +316,7 @@ describe('Selectors', () => {
                 longitude: 43,
                 app_id: 'IOS_MATE',
                 downloaded_at: {
-                $date: 1591595455000
+                $date: 1592544263000
                 },
                 country: 'it',
                 id: '5'
@@ -324,19 +324,19 @@ describe('Selectors', () => {
         ];
         const expectedLocations: Array<Location> = [
             {
-                latitude: 40,
-                longitude: 43,
+                latitude: 46,
+                longitude: 73,
                 app_id: 'IOS_MATE',
                 downloaded_at: {
-                $date: 1591595455000
+                $date: 1591366035000
                 },
-                country: 'it',
-                id: '5'
+                country: 'IT',
+                id: '1'
             },
         ]
         const filter = new Filter();
         filter.identifier = 'IOS_MATE';
-        filter.timeOfDay = [6, 11];
+        filter.timeOfDay = [12, 17];
         filter.countryCode = 'it';
         const props = {filters: filter};
         expect(selectWithFilters.projector(allLocations, props)).toEqual(expectedLocations);

@@ -1,4 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { StoreModule } from '@ngrx/store';
+import {reducer as locationsReducer} from 'src/app/storage/locations/location.reducer';
 
 import { StatsComponent } from './stats.component';
 
@@ -8,7 +10,10 @@ describe('StatsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ StatsComponent ]
+      declarations: [ StatsComponent ],
+      imports: [
+        StoreModule.forRoot({ locations: locationsReducer }),
+      ]
     })
     .compileComponents();
   }));

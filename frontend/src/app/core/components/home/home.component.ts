@@ -97,6 +97,9 @@ export class HomeComponent implements OnInit {
 
   searchDownloads() {
     if (this.startDate && this.endDate) {
+      this.startDate = this.convertToUTC(this.startDate);
+      this.endDate = this.convertToUTC(this.endDate);
+
       this.locationsFacade.loadLocations(this.startDate, this.endDate);
     }
   }
@@ -106,6 +109,10 @@ export class HomeComponent implements OnInit {
       return true;
     }
     return false;
+  }
+
+  convertToUTC(date: Date) {
+    return new Date(date.getTime() - (1000 * 60 * date.getTimezoneOffset()));
   }
 
   displayFn(country: Country): string {

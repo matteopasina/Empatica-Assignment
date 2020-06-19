@@ -31,7 +31,7 @@ export const selectDownloadsPerDayTime = createSelector(
         for (const location of locations) {
             const date = new Date(location.downloaded_at.$date);
             for (const dayTime of dayTimes) {
-                if (date.getHours() >= dayTime.range[0] && date.getHours() <= dayTime.range[1]) {
+                if (date.getUTCHours() >= dayTime.range[0] && date.getUTCHours() <= dayTime.range[1]) {
                     if (downloadsPerDayTime.has(dayTime.name)) {
                         downloadsPerDayTime.get(dayTime.name).push(location);
                     } else {
@@ -75,13 +75,13 @@ export const selectWithFilters = createSelector(
 
             if (props.filters.countryCode) {
                 filteredLocationsByCountry = locations.filter(
-                    (location: Location) => 
+                    (location: Location) =>
                     location.country.toLowerCase() === props.filters.countryCode.toLowerCase());
             }
             if (props.filters.timeOfDay) {
                 filteredLocationsByTime = locations.filter(
-                    (location: Location) => new Date(location.downloaded_at.$date).getHours() >= props.filters.timeOfDay[0]
-                                            && new Date(location.downloaded_at.$date).getHours() <= props.filters.timeOfDay[1]);
+                    (location: Location) => new Date(location.downloaded_at.$date).getUTCHours() >= props.filters.timeOfDay[0]
+                                            && new Date(location.downloaded_at.$date).getUTCHours() <= props.filters.timeOfDay[1]);
             }
             if (props.filters.identifier) {
                 filteredLocationsByIdentifier = locations.filter((location: Location) => location.app_id === props.filters.identifier);
