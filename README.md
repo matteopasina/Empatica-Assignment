@@ -33,6 +33,8 @@ The database is already filled with some random data of download locations.
 
 ## Assumptions and limitations
 
+There will be a client app that will send a POST /location every time a download of the app is done, this POST request will contain all the information of the download and, since it is done by our client app, can be changed as needed. The backend will then compute the country of the location at the time the post is done.
+
 Number of downloads per day around 1k
 
 Filtering by time of day based on UTC time not local time, to filter by local time there is a change to be done. The backend should take the timezone from the lat lng and save another date in the db in another field, let's say 'localtime', and the frontend should filter on that date. Another way to achieve this is to directly add in the POST /location a field 'localtime'.
