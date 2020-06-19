@@ -1,0 +1,13 @@
+
+*.pyc
+*.pyo
+**/__pycache__/
+
+**/dist
+**/tmp
+**/out-tsc
+
+**/.idea
+.project
+
+**/node_modules
