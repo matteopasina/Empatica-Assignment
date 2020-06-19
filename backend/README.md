@@ -27,8 +27,8 @@ Returns all the daytimes in the database
 `GET /locationsInRange`
 
 Query params: 
-- startDate
-- endDate
+- startDate: ISO format YYYY-MM-DDThh:mm:ss.3fZ
+- endDate: ISO format YYYY-MM-DDThh:mm:ss.3fZ
 
 ### Response
 
