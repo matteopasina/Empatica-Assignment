@@ -9,7 +9,7 @@ The system is composed of three services:
 
 ## Installation
 
-The project is usign docker compose to run, so to start all the services just run docker-compose up from this folder
+The project is usign docker compose to run, so to start all the services just run docker-compose up from this folder and the app will be available at `http://0.0.0.0:4200/`
 
 ## Frontend
 
@@ -39,7 +39,7 @@ If the number of download are a lot(millions) some changes can be implemented
 implemented to cache the result of the queries to the DB
 - The zoom on the map can be blocked to a certain maximum level and the
 get request can be modified to query just the visible part 
-- Marker clustering can help the visualization
+- Marker clustering can help visualization
 
 ## Expansion
 
